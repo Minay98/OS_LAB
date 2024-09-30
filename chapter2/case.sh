@@ -1,3 +1,4 @@
+#!/bin/bash
 read -p "Enter a day of the week: " day
 
 case $day in
