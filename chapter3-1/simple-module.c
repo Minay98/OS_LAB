@@ -6,7 +6,6 @@
 static int __init simple_init(void)
 {
     pr_info("Loading simple module\n");
-    // Equivalent to: printk(KERN_INFO "Loading simple module\n");
     return 0; // Returning 0 indicates successful loading
 }
 
