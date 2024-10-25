@@ -1,4 +1,4 @@
-obj-m += simple-module.o 
+obj-m += rbtree.o
  
 PWD := $(CURDIR) 
  
@@ -7,4 +7,3 @@ all:
  
 clean: 
     make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
-
