@@ -39,7 +39,7 @@ static void traverse(struct rb_root *root) {
     struct rb_node *node;
     for (node = rb_first(root); node; node = rb_next(node)) {
         struct my_node *data = container_of(node, struct my_node, node);
-        pr_info("کلید موجود: %d\n", data->key);
+        pr_info("key available: %d\n", data->key);
     }
 }
 
@@ -49,7 +49,7 @@ static void free_tree(struct rb_root *root) {
 
     while ((node = rb_first(root))) {
         data = container_of(node, struct my_node, node);
-        pr_info("حذف کلید: %d\n", data->key);
+        pr_info("key deleted: %d\n", data->key);
         rb_erase(&data->node, root);
         kfree(data);
     }
