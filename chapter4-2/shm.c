@@ -4,6 +4,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/wait.h>
 
 int main() {
     key_t key = IPC_PRIVATE;

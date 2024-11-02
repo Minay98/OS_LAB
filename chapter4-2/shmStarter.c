@@ -4,16 +4,22 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/wait.h>
 
 int main() {
+
+    //Create shared memory
     key_t key = IPC_PRIVATE;
-    int shm_id = shmget(key, 1024, IPC_CREAT | S_IRUSR | S_IWUSR);
+    //int shmget(key_t key, size_t size, int shmflg);
+
+    
     if (shm_id == -1) {
         perror("Failed to create shared memory");
         exit(1);
     }
-
-    char *shared_memory = (char *)shmat(shm_id, NULL, 0);
+    // Create childe process
+    //void *shmat(int shmid, const void *shmaddr, int shmflg);
+    
     if (shared_memory == (char *)-1) {
         perror("Failed to attach to shared memory");
         exit(1);
@@ -28,10 +34,14 @@ int main() {
         printf("Child reads from shared memory: %s\n", shared_memory);
         shmdt(shared_memory); 
     } else { 
-        strcpy(shared_memory, "Hello from parent!"); 
+        //Send message to shared memory
+
         wait(NULL); 
-        shmdt(shared_memory); 
-        shmctl(shm_id, IPC_RMID, NULL); 
+        //Separation of shared memory from address space
+        //int shmdt(const void *shmaddr);
+
+        //Delete shared memory
+        //int shmctl(int shmid, int cmd, struct shmid_ds *buf);
     }
 
     return 0;
