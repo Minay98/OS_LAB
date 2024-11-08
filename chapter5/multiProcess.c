@@ -6,7 +6,18 @@
 #include <time.h>
 
 #define SAMPLE_COUNT 500000  
-#define PROCESS_COUNT 4      
+#define PROCESS_COUNT 4 
+void printHistogram(int* hist) {
+    int i, j;
+    for (i = 0; i < 25; i++) {
+        printf("hist[%d]: ", i - 12);
+        for (j = 0; j < hist[i]; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
 void calculate_samples(int hist[], int sample_count) {
     int counter;
 
@@ -45,6 +56,7 @@ int main() {
     for (int i = 0; i < 25; i++) {
         printf("hist[%d] = %d\n", i - 12, hist[i]);
     }
+    printHistogram(hist);
 
     return 0;
 }
