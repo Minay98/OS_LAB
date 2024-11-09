@@ -32,7 +32,8 @@ int main() {
     } else if (pid == 0) { 
         sleep(1); 
         printf("Child reads from shared memory: %s\n", shared_memory);
-        shmdt(shared_memory); 
+        // Separation of shared memory from process memory space
+        //int shmdt(const void *shmaddr);
     } else { 
         //Send message to shared memory
 
