@@ -108,4 +108,3 @@ int main() {
 
 // To plot the histogram using gnuplot, use the following command:
 // gnuplot -p -e "set style data histograms; plot 'histogram_data.txt' using 2:xtic(1) with boxes"
-س
