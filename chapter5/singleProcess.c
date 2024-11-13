@@ -40,3 +40,6 @@ int main() {
     saveHistogramToFile(hist, 25);
     return 0;
 }
+
+//sudo apt install gnuplot
+//gnuplot -p -e "set style data histograms; plot 'histogram_data.txt' using 2:xtic(1) with boxes"
