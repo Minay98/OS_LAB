@@ -56,3 +56,5 @@ int main() {
     printf("Execution Time: %lf s\n", ((double)(end - start)) / CLOCKS_PER_SEC);
     return 0;
 }
+//run command
+//gcc -o thread_program thread.c -pthread
