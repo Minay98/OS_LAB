@@ -54,6 +54,6 @@ int main() {
     merge_chunks(b, mid, n - 1);
     end = clock();
 
-    printf("زمان اجرای دو نخه: %lf ثانیه\n", ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("executin time: %lf s\n", ((double)(end - start)) / CLOCKS_PER_SEC);
     return 0;
 }

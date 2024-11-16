@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 void prefix_sum_serial(int a[], int b[], int n) {
     b[0] = a[0]; 
@@ -12,7 +13,16 @@ int main() {
     int n = sizeof(a) / sizeof(a[0]);         
     int b[n];                               
 
+    clock_t start, end;
+    
+    start = clock();
+
     prefix_sum_serial(a, b, n);
+
+    end = clock();
+
+    double execution_time = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("execution time: %lf s\n", execution_time);
 
     printf("Array a: ");
     for (int i = 0; i < n; i++) {
